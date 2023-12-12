@@ -1,0 +1,7 @@
+docker search tensorflow
+docker pull jupyter/tensorflow-notebook
+docker image ls
+docker run -t -i -p 8000:8888 --rm jupyter/tensorflow-notebook
+docker-compose up
+docker-compose down
+docker container prune

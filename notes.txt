@@ -1,0 +1,18 @@
+Source:
+https://www.youtube.com/watch?v=-l7YocEQtA0&list=PLRfcTs7jiwddt8T8-fzxDD2KwapIjDj20&index=99&t=252s
+
+Need to have this line in the docker-compose file on Windows:
+JUPYTER_ALLOW_INSECURE_WRITES=true
+
+This project allows a container to modify itself to allow for additional program installations
+that do not need to be done every time you run the container... You can do this by using a combo
+of docker-compose and a standard Dockerfile.
+
+This project also copies local directory of your project up to the container notebook's directory
+
+RUN : \
+      && pip install --upgrade pip \
+      && pip install transformers \
+      && pip install pysrt \
+      && fix-permissions "/home/${NB_USER}" \
+      && :
